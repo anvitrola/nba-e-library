@@ -11,7 +11,6 @@ export const BannerContainer = styled.section`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -100;
     transform: scale(1.4);
 
   }
