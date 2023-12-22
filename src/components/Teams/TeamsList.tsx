@@ -1,4 +1,4 @@
-import react, { Dispatch, useEffect, useState } from "react";
+import react, { Dispatch, memo, useEffect, useState } from "react";
 import {
   DetailsContainer,
   ListsContainer,
@@ -9,7 +9,7 @@ import { TeamsListItem } from "../../types/teams";
 import { Button, CircularProgress, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function TeamsList({
+const TeamsList = memo(function TeamsList({
   setSelectedTeamId,
   selectedTeamId,
 }: {
@@ -105,7 +105,7 @@ export default function TeamsList({
         </h2>
 
         <h6 className="text-[color:var(--white)] mb-4 tracking-tighter">
-          Check out <u>all teams</u>  in the history of NBA 
+          Check out <u>all teams</u> in the history of NBA
         </h6>
 
         {loading ? (
@@ -192,4 +192,6 @@ export default function TeamsList({
       </DetailsContainer>
     </TeamsListContainer>
   );
-}
+});
+
+export default TeamsList;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { HttpClient } from "../../services/api";
 import { PlayerStats } from "../../types/teams";
 import {
@@ -11,7 +11,11 @@ import {
   TableRow,
 } from "@mui/material";
 
-export default function PlayerStatsTable({ playerId }: { playerId: number }) {
+const PlayersStatsTable = memo(function PlayerStatsTable({
+  playerId,
+}: {
+  playerId: number;
+}) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalStatsCount, setTotalStatsCount] = useState(0);
   const [selectedPlayerName, setSelectedPlayerName] = useState("");
@@ -70,10 +74,10 @@ export default function PlayerStatsTable({ playerId }: { playerId: number }) {
         />
         {
           <h1 className="text-[color:var(--white)] font-bold self-center ml-8">
-            _____________________{selectedPlayerName.toUpperCase()} stats{" "}_____
+            _____________________{selectedPlayerName.toUpperCase()} stats _____
           </h1>
         }
-         <img
+        <img
           src="https://assets.website-files.com/611151d2308094b62cb7a988/6131b10d057cdd46a0bf73d6_the-shot.svg"
           loading="lazy"
           className="ml-8"
@@ -87,7 +91,7 @@ export default function PlayerStatsTable({ playerId }: { playerId: number }) {
       ) : (
         <>
           <Table
-            sx={{ backgroundColor: "var(--white)", mt: "1rem", width: "70%"}}
+            sx={{ backgroundColor: "var(--white)", mt: "1rem", width: "70%" }}
           >
             <TableHead>
               <TableRow
@@ -167,4 +171,6 @@ export default function PlayerStatsTable({ playerId }: { playerId: number }) {
       )}
     </>
   );
-}
+});
+
+export default PlayersStatsTable;
