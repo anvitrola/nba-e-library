@@ -1,43 +1,53 @@
-# Getting Started with Create React App
+<div align="center">
+    <img width="209" alt="mainImage" src="https://1000logos.net/wp-content/uploads/2017/04/Logo-NBA.png">
+    <h1>NBA E-Library</h1>
+    <p>All you need to know about NBA</p>
+    <p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+            <img src="https://img.shields.io/badge/language-Typescript-blue" alt="Repo Main Language" />
+        </a>
+        <a href="https://your-nba-e-library-url.com">
+            <img src="https://img.shields.io/badge/platform-web-blueviolet" alt="Project Platform" />
+        </a>
+        <a href="https://github.com/your-username/nba-e-library/blob/main/LICENSE">
+            <img src="https://img.shields.io/badge/license-MIT-red" alt="Repo License" />
+        </a>
+    </p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📈📊 About the Project
+<p>
+    NBA E-Library is a comprehensive resource for NBA fans, providing information about NBA teams, matches, players, and player statistics.
+</p>
+<p>This project is designed to be a one-stop destination for all NBA enthusiasts to explore the rich history and current details of the NBA world.
+</p>
 
-## Available Scripts
+## 💻 Features
 
-In the project directory, you can run:
+- **All NBA Teams:** Explore a list of all NBA teams, their division, and other relevant details.
+- **All Matches:** Access details about past NBA matches, including scores, dates, and team matchups.
+- **All Players:** Discover information about NBA players, including their profiles, positions, and teams.
+- **Player Stats:** Dive into detailed statistics for each NBA player, covering points, assists, rebounds, and more.
 
-### `npm start`
+## 🛠 Main Technologies
+- [React.js](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [External NBA API](https://rapidapi.com/theapiguy/api/free-nba) (Replace with the actual API link)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 🚀 Running the Project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/anvitrola/nba-e-library.git
 
-### `npm test`
+2. Run npm install 
+   ```bash
+   npm install
+   
+3. Run npm run start
+   ```bash
+   npm run start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
