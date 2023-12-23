@@ -29,7 +29,7 @@ const GamesList = memo(function GamesList({
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
   const [loading, setIsLoading] = useState(true);
 
-  const [chosenGameId, setChosenGameId] = useState(1);
+  const [chosenGameId, setChosenGameId] = useState<number | null>(null);
   const [chosenGameDetails, setChoseGameDetails] =
     useState<GamesListItem | null>(null);
 
@@ -41,6 +41,7 @@ const GamesList = memo(function GamesList({
     if (response.data.data) {
       const data = response.data.data;
       setGamesList(data);
+      setIsLoading(false);
     }
   }
 
@@ -48,7 +49,6 @@ const GamesList = memo(function GamesList({
     const response = await HttpClient.get(`/games/${gameId}`);
 
     if (response.data) {
-      setIsLoading(false);
       setChoseGameDetails(response.data);
     }
   }
@@ -58,7 +58,7 @@ const GamesList = memo(function GamesList({
   }, [teamIds]);
 
   useEffect(() => {
-    getGameDetails(chosenGameId);
+    if (chosenGameId) getGameDetails(chosenGameId);
   }, [chosenGameId]);
 
   return (
@@ -69,7 +69,7 @@ const GamesList = memo(function GamesList({
         </h1>
         <ListContainer>
           {loading ? (
-            <CircularProgress />
+            <CircularProgress data-testid="games-list-loader" />
           ) : (
             <>
               {gamesList.length &&
@@ -122,42 +122,48 @@ const GamesList = memo(function GamesList({
             border: "none",
           }}
         >
-          <h2
-            className="text-[color:var(--blue)] font-bold"
-            id="parent-modal-title"
-          >
-            ___{chosenGameDetails?.visitor_team.name} x{" "}
-            {chosenGameDetails?.home_team.name}_________________
-          </h2>
-          <ul className="mt-10">
-            <li className="flex items-center justify-start mb-5">
-              <span className="text-[color:var(--red)] font-bold">HOME</span>
-              <span className="ml-20">
-                {chosenGameDetails?.home_team.full_name}
-              </span>
-              <span className="ml-20">
-                ({chosenGameDetails?.home_team.city})
-              </span>
-              <span className="ml-20">
-                {chosenGameDetails?.home_team_score}
-              </span>
-            </li>
-            <Divider />
-            <li className="flex items-center justify-start mt-5">
-              <span className="text-[color:var(--red)] font-bold">
-                VISITOR{" "}
-              </span>
-              <span className="ml-20">
-                {chosenGameDetails?.visitor_team.full_name}
-              </span>
-              <span className="ml-20">
-                ({chosenGameDetails?.visitor_team.city})
-              </span>
-              <span className="ml-20">
-                {chosenGameDetails?.visitor_team_score}
-              </span>
-            </li>
-          </ul>
+          {chosenGameDetails && (
+            <>
+              <h2
+                className="text-[color:var(--blue)] font-bold"
+                id="parent-modal-title"
+              >
+                ___{chosenGameDetails?.visitor_team.name} x{" "}
+                {chosenGameDetails?.home_team.name}_________________
+              </h2>
+              <ul className="mt-10">
+                <li className="flex items-center justify-start mb-5">
+                  <span className="text-[color:var(--red)] font-bold">
+                    HOME
+                  </span>
+                  <span className="ml-20">
+                    {chosenGameDetails?.home_team.full_name}
+                  </span>
+                  <span className="ml-20">
+                    ({chosenGameDetails?.home_team.city})
+                  </span>
+                  <span className="ml-20">
+                    {chosenGameDetails?.home_team_score}
+                  </span>
+                </li>
+                <Divider />
+                <li className="flex items-center justify-start mt-5">
+                  <span className="text-[color:var(--red)] font-bold">
+                    VISITOR{" "}
+                  </span>
+                  <span className="ml-20">
+                    {chosenGameDetails?.visitor_team.full_name}
+                  </span>
+                  <span className="ml-20">
+                    ({chosenGameDetails?.visitor_team.city})
+                  </span>
+                  <span className="ml-20">
+                    {chosenGameDetails?.visitor_team_score}
+                  </span>
+                </li>
+              </ul>
+            </>
+          )}
         </Box>
       </Modal>
     </>
