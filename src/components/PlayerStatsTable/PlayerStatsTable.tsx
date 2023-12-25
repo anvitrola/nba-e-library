@@ -69,6 +69,10 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
     getPlayerStats(playerId, currentPage);
   }, [playerId, currentPage]);
 
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [playerId]);
+
   return (
     <>
       <div className="flex self-start">
