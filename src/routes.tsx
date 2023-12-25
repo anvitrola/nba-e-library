@@ -10,6 +10,10 @@ export const routes = {
       element: <Homepage />,
     },
     {
+      path: "/nba-e-library", // due gh pages deploy under repository name
+      element: <Homepage />,
+    },
+    {
       path: "/team/:teamName/:teamId/roster",
       element: <TeamRoster />,
     },
