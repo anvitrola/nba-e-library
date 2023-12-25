@@ -76,6 +76,10 @@ const GamesList = memo(function GamesList({
   }, [teamIds, currentPage]);
 
   useEffect(() => {
+    setCurrentPage(0)
+  }, [teamIds])
+
+  useEffect(() => {
     if (chosenGameId) getGameDetails(chosenGameId);
   }, [chosenGameId]);
 
