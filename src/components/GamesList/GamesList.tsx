@@ -34,22 +34,34 @@ const GamesList = memo(function GamesList({
     useState<GamesListItem | null>(null);
 
   async function getGamesListByTeam() {
-    const response = await HttpClient.get("/games", {
-      params: { team_ids: teamIds },
-    });
+    try {
+      const response = await HttpClient.get("/games", {
+        params: { team_ids: teamIds },
+      });
 
-    if (response.data.data) {
-      const data = response.data.data;
-      setGamesList(data);
-      setIsLoading(false);
+      if (response.data.data) {
+        const data = response.data.data;
+        setGamesList(data);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      // ToDo:  Handle the error, e.g., show a user-friendly message
+
+      console.error("Error fetching games list:", error);
+      setIsLoading(false); // Set loading to false in case of an error
     }
   }
 
   async function getGameDetails(gameId: number) {
-    const response = await HttpClient.get(`/games/${gameId}`);
+    try {
+      const response = await HttpClient.get(`/games/${gameId}`);
 
-    if (response.data) {
-      setChoseGameDetails(response.data);
+      if (response.data) {
+        setChoseGameDetails(response.data);
+      }
+    } catch (error) {
+      console.error("Error fetching game details:", error);
+      setIsLoading(false); // Set loading to false in case of an error
     }
   }
 

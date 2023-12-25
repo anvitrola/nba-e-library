@@ -28,34 +28,40 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
   >([]);
 
   async function getPlayerStats(playerId: number, page: number) {
-    const playerDetails = await HttpClient.get(`/stats`, {
-      params: {
-        player_ids: [playerId],
-        page,
-        per_page: "10",
-      },
-    });
-
-    if (playerDetails.data) {
-      const data: PlayerStats[] = playerDetails.data.data;
-
-      if (!data.length) {
-        setLoading(false);
-        return alert(
-          "Ooops, you got us! It seems like we do not have data for this player stats..."
-        );
-      }
-
-      setChosenPlayerStats(data);
-      setTotalStatsCount(playerDetails.data.meta.total_count);
-      setSelectedPlayerName(data[0].player.last_name);
-
-      const headers = Object.keys(data[0]).filter((key) => {
-        if (!["id", "player"].includes(key)) return key;
+    try {
+      const playerDetails = await HttpClient.get(`/stats`, {
+        params: {
+          player_ids: [playerId],
+          page,
+          per_page: "10",
+        },
       });
 
-      setPlayerStatsTableHeaders(headers);
-      setLoading(false);
+      if (playerDetails.data) {
+        const data: PlayerStats[] = playerDetails.data.data;
+
+        if (!data.length) {
+          setLoading(false);
+          return alert(
+            "Ooops, you got us! It seems like we do not have data for this player stats..."
+          );
+        }
+
+        setChosenPlayerStats(data);
+        setTotalStatsCount(playerDetails.data.meta.total_count);
+        setSelectedPlayerName(data[0].player.last_name);
+
+        const headers = Object.keys(data[0]).filter((key) => {
+          if (!["id", "player"].includes(key)) return key;
+        });
+
+        setPlayerStatsTableHeaders(headers);
+        setLoading(false);
+      }
+    } catch (error) {
+      // Handle the error, e.g., show a user-friendly message
+      console.error("Error fetching player stats:", error);
+      setLoading(false); // Set loading to false in case of an error
     }
   }
 

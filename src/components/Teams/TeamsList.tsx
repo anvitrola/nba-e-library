@@ -36,10 +36,8 @@ const TeamsList = memo(function TeamsList({
       const data = JSON.parse(cachedTeamListData);
 
       if (page > 0) {
-        // if it is not the first page, we need to get the old array (the previous state) and create a new array with the old data and the new data
         setTeamsList([...teamsList, ...data.data]);
       } else {
-        // if it's the first page, we just set the state normally
         setTeamsList([...data.data]);
       }
 
@@ -49,37 +47,45 @@ const TeamsList = memo(function TeamsList({
       return;
     }
 
-    const response = await HttpClient.get("/teams", { params: { page } });
+    try {
+      const response = await HttpClient.get("/teams", { params: { page } });
 
-    if (response.data.data) {
-      const data = response.data.data;
-      const nextPage = response.data.meta.next_page;
+      if (response.data.data) {
+        const data = response.data.data;
+        const nextPage = response.data.meta.next_page;
 
-      if (page > 0) {
-        // if it is not the first page, we need to get the old array (the previous state) and create a new array with the old data and the new data
-        setTeamsList([...teamsList, ...data]);
-      } else {
-        // if it's the first page, we just set the state normally
-        setTeamsList([...data]);
+        if (page > 0) {
+          setTeamsList([...teamsList, ...data]);
+        } else {
+          setTeamsList([...data]);
+        }
+
+        sessionStorage.setItem(
+          TEAM_LIST_BY_PAGE_CACHE_KEY,
+          JSON.stringify({ data, nextPage })
+        );
+
+        setNextPage(nextPage);
+        setLoading(false);
       }
+    } catch (error) {
+      // ToDo: Handle the error, e.g., show a user-friendly message
 
-      sessionStorage.setItem(
-        TEAM_LIST_BY_PAGE_CACHE_KEY,
-        JSON.stringify({ data, nextPage })
-      );
-
-      setNextPage(nextPage);
-      setLoading(false);
+      console.error("Error fetching team list:", error);
+      setLoading(false); // Set loading to false in case of an error
     }
   }
 
   async function getTeamDetails(teamId: number) {
-    const response = await HttpClient.get(`/teams/${teamId}`);
+    try {
+      const response = await HttpClient.get(`/teams/${teamId}`);
 
-    if (response.data) {
-      const data = response.data;
-
-      setTeamDetails({ ...data });
+      if (response.data) {
+        const data = response.data;
+        setTeamDetails({ ...data });
+      }
+    } catch (error) {
+      console.error("Error fetching team details:", error);
     }
   }
 
