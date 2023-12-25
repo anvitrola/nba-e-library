@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Divider, Modal } from "@mui/material";
+import { Box, CircularProgress, Divider, Modal, TablePagination } from "@mui/material";
 import {
   GamesListContainer,
   GamesCard,
@@ -29,19 +29,25 @@ const GamesList = memo(function GamesList({
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
   const [loading, setIsLoading] = useState(true);
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalGamesPages, setTotalGamesPages] = useState(0);
+
   const [chosenGameId, setChosenGameId] = useState<number | null>(null);
   const [chosenGameDetails, setChoseGameDetails] =
     useState<GamesListItem | null>(null);
 
-  async function getGamesListByTeam() {
+  async function getGamesListByTeam(page: number) {
     try {
       const response = await HttpClient.get("/games", {
-        params: { team_ids: teamIds },
+        params: { team_ids: teamIds, page },
       });
 
       if (response.data.data) {
         const data = response.data.data;
+        const totalPages = response.data.meta.total_pages;
+
         setGamesList(data);
+        setTotalGamesPages(totalPages);
         setIsLoading(false);
       }
     } catch (error) {
@@ -66,8 +72,8 @@ const GamesList = memo(function GamesList({
   }
 
   useEffect(() => {
-    getGamesListByTeam();
-  }, [teamIds]);
+    getGamesListByTeam(currentPage);
+  }, [teamIds, currentPage]);
 
   useEffect(() => {
     if (chosenGameId) getGameDetails(chosenGameId);
@@ -114,6 +120,15 @@ const GamesList = memo(function GamesList({
             </>
           )}
         </ListContainer>
+
+        <TablePagination
+          sx={{ backgroundColor: "var(--white)", width: '20%', alignSelf: 'end' }}
+          count={totalGamesPages}
+          rowsPerPage={25}
+          page={currentPage}
+          rowsPerPageOptions={[10]}
+          onPageChange={(_, page) => setCurrentPage(page)}
+        />
       </GamesListContainer>
 
       <Modal
