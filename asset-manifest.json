@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/nba-e-library/static/css/main.e514afcc.css",
-    "main.js": "/nba-e-library/static/js/main.12c2b8a6.js",
+    "main.js": "/nba-e-library/static/js/main.61067a21.js",
     "static/media/nba-logo.png": "/nba-e-library/static/media/nba-logo.fb65b6aa3a203cca2dd7.png",
     "index.html": "/nba-e-library/index.html",
     "main.e514afcc.css.map": "/nba-e-library/static/css/main.e514afcc.css.map",
-    "main.12c2b8a6.js.map": "/nba-e-library/static/js/main.12c2b8a6.js.map"
+    "main.61067a21.js.map": "/nba-e-library/static/js/main.61067a21.js.map"
   },
   "entrypoints": [
     "static/css/main.e514afcc.css",
-    "static/js/main.12c2b8a6.js"
+    "static/js/main.61067a21.js"
   ]
 }
