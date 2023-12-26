@@ -39,14 +39,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
 
       if (playerDetails.data) {
         const data: PlayerStats[] = playerDetails.data.data;
-
-        if (!data.length) {
-          setLoading(false);
-          return alert(
-            "Ooops, you got us! It seems like we do not have data for this player stats..."
-          );
-        }
-
+      
         setChosenPlayerStats(data);
         setTotalStatsCount(playerDetails.data.meta.total_count);
         setSelectedPlayerName(data[0].player.last_name);

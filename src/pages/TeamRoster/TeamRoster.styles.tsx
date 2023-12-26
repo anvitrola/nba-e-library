@@ -40,6 +40,7 @@ export const PlayerStatsContainer = styled.section`
   justify-content: center;
   align-items: end;
   padding: 1rem 2rem;
+  margin-top: 10rem;
 
   background-image: linear-gradient(
     180deg,
