@@ -36,8 +36,10 @@ const TeamsList = memo(function TeamsList({
       const data = JSON.parse(cachedTeamListData);
 
       if (page > 0) {
+        // if it is not the first page, we need to get the old array (the previous state) and create a new array with the old data and the new data
         setTeamsList([...teamsList, ...data.data]);
       } else {
+        // if it's the first page, we just set the state normally
         setTeamsList([...data.data]);
       }
 
