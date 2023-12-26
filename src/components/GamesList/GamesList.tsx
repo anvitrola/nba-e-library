@@ -130,7 +130,7 @@ const GamesList = memo(function GamesList({
           count={totalGamesPages}
           rowsPerPage={25}
           page={currentPage}
-          rowsPerPageOptions={[10]}
+          rowsPerPageOptions={[25]}
           onPageChange={(_, page) => setCurrentPage(page)}
         />
       </GamesListContainer>
