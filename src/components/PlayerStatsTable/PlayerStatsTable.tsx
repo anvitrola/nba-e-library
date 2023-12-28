@@ -39,7 +39,6 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
 
       if (playerDetails.data) {
         const data: PlayerStats[] = playerDetails.data.data;
-      
         setChosenPlayerStats(data);
         setTotalStatsCount(playerDetails.data.meta.total_count);
         setSelectedPlayerName(data[0].player.last_name);
@@ -90,7 +89,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
       </div>
 
       {loading ? (
-        <CircularProgress />
+        <CircularProgress data-testid="player-stats-table-loader" />
       ) : (
         <>
           <Table
@@ -159,6 +158,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
           </Table>
 
           <TablePagination
+          data-testid="table-pagination-player-stats-table"
             sx={{
               backgroundColor: "var(--blue)",
               color: "var(--white)",
