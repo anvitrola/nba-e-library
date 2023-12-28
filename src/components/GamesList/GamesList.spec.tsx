@@ -43,6 +43,17 @@ const mockedGames: GamesListItem[] = [
   },
 ];
 
+const mockedPayload = {
+  data: [...mockedGames],
+  meta: {
+    total_pages: 2822,
+    current_page: 1,
+    next_page: 2,
+    per_page: 25,
+    total_count: 70539,
+  },
+};
+
 describe("<GamesList/>", () => {
   beforeEach(() => {
     server.use(
@@ -50,21 +61,20 @@ describe("<GamesList/>", () => {
         return res(ctx.json({ ...mockedGames[0] }));
       }),
       rest.get(`${api}/games`, (_, res, ctx) => {
-        return res(ctx.json({ data: [...mockedGames] }));
+        return res(ctx.json({ ...mockedPayload }));
       })
     );
+
+    render(<GamesList teamIds={[1]} />);
   });
 
   beforeAll(() => server.listen());
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
 
-  test("renders loading spinner initially and then games list data", async () => {
-    act(() => {
-      render(<GamesList teamIds={[1]} />);
-    });
-
+  it("should render loading spinner initially and then games list data", async () => {
     expect(screen.getByTestId("games-list-loader")).toBeInTheDocument();
+
     await waitFor(() =>
       expect(screen.queryByTestId("games-list-loader")).not.toBeInTheDocument()
     );
@@ -75,8 +85,7 @@ describe("<GamesList/>", () => {
     });
   });
 
-  test("renders game details modal on game card click", async () => {
-    render(<GamesList teamIds={[1]} />);
+  test("should render game details modal on game card click", async () => {
     await waitFor(() =>
       expect(screen.queryByTestId("loading-spinner")).not.toBeInTheDocument()
     );
@@ -93,6 +102,17 @@ describe("<GamesList/>", () => {
     await waitFor(() => {
       expect(screen.getByText(`(${mockedTeams[0].city})`)).toBeInTheDocument();
       expect(screen.getByText(`(${mockedTeams[1].city})`)).toBeInTheDocument();
+    });
+  });
+
+  it("should render pagination footer", async () => {
+    await waitFor(() =>
+      expect(screen.queryByTestId("loading-spinner")).not.toBeInTheDocument()
+    );
+
+    await waitFor(() => {
+      const nextPageButton = screen.getByTestId("games-list-table-pagination");
+      expect(nextPageButton).toBeInTheDocument();
     });
   });
 });
