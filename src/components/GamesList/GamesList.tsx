@@ -126,6 +126,7 @@ const GamesList = memo(function GamesList({
         </ListContainer>
 
         <TablePagination
+          data-testid='games-list-table-pagination'
           sx={{ backgroundColor: "var(--white)", width: '20%', alignSelf: 'end' }}
           count={totalGamesPages}
           rowsPerPage={25}
