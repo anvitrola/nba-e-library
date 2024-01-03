@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import "./styles/global.css";
-import "./App.css";
 import { AppBg, AppBody } from "./styles/App.styles";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { routes } from "./routes";
