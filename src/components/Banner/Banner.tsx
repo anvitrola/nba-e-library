@@ -1,9 +1,16 @@
-import { BannerContainer, ScrollContentContainer, ScrollDownLine } from "./Banner.styles";
+import {
+  BannerContainer,
+  ScrollContentContainer,
+  ScrollDownLine,
+} from "./Banner.styles";
+import { memo } from "react";
 
-export default function Banner() {
+const Banner = memo(function Banner() {
   return (
     <BannerContainer>
+
       <video playsInline muted autoPlay loop>
+        
         <source
           src="https://assets.website-files.com/611151d2308094b62cb7a988/6131af917e33fe64e1f0ba22_123-transcode.mp4"
           data-wf-ignore={true}
@@ -16,4 +23,6 @@ export default function Banner() {
       </ScrollContentContainer>
     </BannerContainer>
   );
-}
+})
+
+export default Banner
