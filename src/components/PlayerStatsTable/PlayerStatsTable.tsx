@@ -10,6 +10,7 @@ import {
   TablePagination,
   TableRow,
 } from "@mui/material";
+import BlueRedTriangle from '../../assets/images/blue-red-triangle.svg'
 
 const PlayersStatsTable = memo(function PlayerStatsTable({
   playerId,
@@ -69,7 +70,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
     <>
       <div className="flex self-start">
         <img
-          src="https://assets.website-files.com/611151d2308094b62cb7a988/61314d6b959cd4cb3233c8a0_blue-red-triangle.svg"
+          src={BlueRedTriangle}
           loading="lazy"
           width="100"
           alt=""
@@ -80,7 +81,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
           </h1>
         }
         <img
-          src="https://assets.website-files.com/611151d2308094b62cb7a988/6131b10d057cdd46a0bf73d6_the-shot.svg"
+          src={BlueRedTriangle}
           loading="lazy"
           className="ml-8"
           width="100"

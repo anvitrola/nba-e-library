@@ -19,6 +19,8 @@ import {
 import PlayerStatsTable from "../../components/PlayerStatsTable/PlayerStatsTable";
 import { paginateArray } from "../../helpers/paginateArray";
 import { getTeamPlayersList } from "../../services/get-team-players-list";
+import BlueRedTriangle from '../../assets/images/blue-red-triangle.svg'
+import BornIdentities from '../../assets/images/born-identities.svg'
 
 export default function TeamRoster() {
   const { teamId, teamName } = useParams();
@@ -148,7 +150,7 @@ export default function TeamRoster() {
 
             <div className="flex flex-col">
               <img
-                src="https://assets.website-files.com/611151d2308094b62cb7a988/61314d6b959cd4cb3233c8a0_blue-red-triangle.svg"
+                src={BlueRedTriangle}
                 loading="lazy"
                 width="135"
                 alt=""
@@ -157,7 +159,7 @@ export default function TeamRoster() {
 
             <div className="ml-8 mt-8 items-center self-end">
               <img
-                src="https://assets.website-files.com/611151d2308094b62cb7a988/6131502856bf8383d5830b8b_born-identities.svg"
+                src={BornIdentities}
                 loading="lazy"
                 width="200"
                 alt=""
@@ -166,7 +168,7 @@ export default function TeamRoster() {
 
             <div className="flex flex-col self-end">
               <img
-                src="https://assets.website-files.com/611151d2308094b62cb7a988/61314d6b959cd4cb3233c8a0_blue-red-triangle.svg"
+                src={BlueRedTriangle}
                 loading="lazy"
                 width="135"
                 alt=""

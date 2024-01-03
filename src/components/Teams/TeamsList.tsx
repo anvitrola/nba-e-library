@@ -8,6 +8,7 @@ import { HttpClient } from "../../services/api";
 import { TeamsListItem } from "../../types/teams";
 import { Button, CircularProgress, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import BlueRedTriangle from '../../assets/images/blue-red-triangle.svg'
 
 const TeamsList = memo(function TeamsList({
   setSelectedTeamId,
@@ -117,7 +118,7 @@ const TeamsList = memo(function TeamsList({
         </h6>
 
         {loading ? (
-          <CircularProgress />
+          <CircularProgress data-testid='teams-list-loader' />
         ) : (
           <>
             <ul>
@@ -147,7 +148,7 @@ const TeamsList = memo(function TeamsList({
 
       <div className="flex flex-col">
         <img
-          src="https://assets.website-files.com/611151d2308094b62cb7a988/61314d6b959cd4cb3233c8a0_blue-red-triangle.svg"
+          src={BlueRedTriangle}
           loading="lazy"
           width="135"
           alt=""
