@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import AppBackground from '../assets/images/bg.jpeg'
 
 export const AppBody = styled.div`
   height: auto;
@@ -18,7 +19,7 @@ export const AppBg = styled.div`
       rgba(0, 0, 0, 0.66),
       rgba(0, 0, 0, 0.66)
     ),
-    url("https://assets.website-files.com/611151d2308094b62cb7a988/61115c158d2377c8d66c32fc_nba-90%20(1).jpeg");
+    url(${AppBackground});
 
   position: fixed;
   left: 0px;

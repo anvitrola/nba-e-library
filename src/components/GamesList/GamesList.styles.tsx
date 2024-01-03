@@ -1,5 +1,6 @@
 import { Card } from "@mui/material";
 import styled from "styled-components";
+import BlueBackGround from '../../assets/images/blue-bg.jpeg'
 
 export const GamesListContainer = styled.section`
   display: flex;
@@ -13,7 +14,7 @@ export const GamesListContainer = styled.section`
       rgba(0, 0, 0, 0.66),
       rgba(0, 0, 0, 0.66)
     ),
-    url("https://i.redd.it/m6up7z4yphh31.jpg");
+    url(${BlueBackGround});
 
   padding: 5rem 1rem;
 `;
@@ -22,12 +23,8 @@ export const ListContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  
-
   justify-content: center;
   align-items: center;
-
-
 `;
 
 export const GamesCard = styled(Card)`

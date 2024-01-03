@@ -82,7 +82,7 @@ export default function TeamRoster() {
                   <TableRow
                     sx={{
                       backgroundColor: "var(--blue)",
-                      textcolor: "var(--white)",
+                      textcolor: "var(--white)"
                     }}
                   >
                     {playersListTableHeaders.map((header, idx) => (
@@ -178,7 +178,6 @@ export default function TeamRoster() {
         )}
       </TeamListContainer>
 
-      <Divider />
 
       {getPlayerDetails && (
         <PlayerStatsContainer ref={scrollToRef}>
