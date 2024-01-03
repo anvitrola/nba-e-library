@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@mui/material";
 import BlueRedTriangle from '../../assets/images/blue-red-triangle.svg'
+import { formatDateToMonthDayYear } from "../../helpers/formatDateToMonthDayYear";
 
 const PlayersStatsTable = memo(function PlayerStatsTable({
   playerId,
@@ -94,7 +95,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
       ) : (
         <>
           <Table
-            sx={{ backgroundColor: "var(--white)", mt: "1rem", width: "70%" }}
+            sx={{ backgroundColor: "var(--white)", mt: "1rem", width: "70%"}}
           >
             <TableHead>
               <TableRow
@@ -133,7 +134,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
                       }
                       // data formatting if the current table column is game
                       else if (key === "game") {
-                        tableData = new Date(stat[key]["date"]).toDateString();
+                        tableData = formatDateToMonthDayYear(stat[key]["date"])
                       }
 
                       // if we do not have this data available it will fallback to this
@@ -163,6 +164,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
             sx={{
               backgroundColor: "var(--blue)",
               color: "var(--white)",
+              mb: '2rem' 
             }}
             component="div"
             count={totalStatsCount}
