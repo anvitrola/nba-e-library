@@ -8,7 +8,6 @@ import {
 } from "./TeamRoster.styles";
 import {
   CircularProgress,
-  Divider,
   Table,
   TableBody,
   TableCell,
