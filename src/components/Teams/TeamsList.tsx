@@ -151,7 +151,7 @@ const TeamsList = memo(function TeamsList({
           src={BlueRedTriangle}
           loading="lazy"
           width="135"
-          alt=""
+          alt="Blue and red triangles with a player image in the background"
         />
       </div>
 

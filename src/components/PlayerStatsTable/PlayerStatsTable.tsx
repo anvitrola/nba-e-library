@@ -74,7 +74,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
           src={BlueRedTriangle}
           loading="lazy"
           width="100"
-          alt=""
+          alt="Blue and red triangles with a player image in the background"
         />
         {
           <h1 className="text-[color:var(--white)] font-bold self-center ml-8">
@@ -86,7 +86,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
           loading="lazy"
           className="ml-8"
           width="100"
-          alt=""
+          alt="Blue and red triangles with a player image in the background"
         />
       </div>
 

@@ -152,7 +152,7 @@ export default function TeamRoster() {
                 src={BlueRedTriangle}
                 loading="lazy"
                 width="135"
-                alt=""
+                alt="Blue and red triangles with a player image in the background"
               />
             </div>
 
@@ -161,7 +161,7 @@ export default function TeamRoster() {
                 src={BornIdentities}
                 loading="lazy"
                 width="200"
-                alt=""
+                alt="Text with the message Born Identities on a bold font"
               />
             </div>
 
@@ -170,7 +170,7 @@ export default function TeamRoster() {
                 src={BlueRedTriangle}
                 loading="lazy"
                 width="135"
-                alt=""
+                alt="Blue and red triangles with a player image in the background"
               />
             </div>
           </div>

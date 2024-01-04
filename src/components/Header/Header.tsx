@@ -9,7 +9,7 @@ export default function Header () {
             <Box>
                 <Link to="/">
                     <NBALogo>
-                        <img src={logo}/>
+                        <img src={logo} alt='Official NBA logo featuring a silhouette of a basketball player in blue and red, holding a basketball in both hands.'/>
                     </NBALogo>
                 </Link>
             </Box>
