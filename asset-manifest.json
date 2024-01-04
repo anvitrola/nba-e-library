@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/nba-e-library/static/css/main.b86e9b55.css",
-    "main.js": "/nba-e-library/static/js/main.a6c375bf.js",
+    "main.css": "/nba-e-library/static/css/main.715716f2.css",
+    "main.js": "/nba-e-library/static/js/main.0b50313c.js",
     "static/media/blue-red-triangle.svg": "/nba-e-library/static/media/blue-red-triangle.28ac77ca7447dd69972a3dfee658e767.svg",
-    "static/media/mobile-banner.jpeg": "/nba-e-library/static/media/mobile-banner.206cbde4d8b9fe39a5f4.jpeg",
+    "static/media/bg.jpeg": "/nba-e-library/static/media/bg.9cfde693f5705ca273e9.jpeg",
+    "static/media/gray-bg.jpeg": "/nba-e-library/static/media/gray-bg.1af974a3b410ae0230fd.jpeg",
+    "static/media/blue-bg.jpeg": "/nba-e-library/static/media/blue-bg.d6b9022bdae634e52409.jpeg",
     "static/media/nba-logo.png": "/nba-e-library/static/media/nba-logo.fb65b6aa3a203cca2dd7.png",
     "static/media/born-identities.svg": "/nba-e-library/static/media/born-identities.d93e5fdd7b4720f3ec9bfa10e665bd80.svg",
     "index.html": "/nba-e-library/index.html",
-    "main.b86e9b55.css.map": "/nba-e-library/static/css/main.b86e9b55.css.map",
-    "main.a6c375bf.js.map": "/nba-e-library/static/js/main.a6c375bf.js.map"
+    "main.715716f2.css.map": "/nba-e-library/static/css/main.715716f2.css.map",
+    "main.0b50313c.js.map": "/nba-e-library/static/js/main.0b50313c.js.map"
   },
   "entrypoints": [
-    "static/css/main.b86e9b55.css",
-    "static/js/main.a6c375bf.js"
+    "static/css/main.715716f2.css",
+    "static/js/main.0b50313c.js"
   ]
 }
