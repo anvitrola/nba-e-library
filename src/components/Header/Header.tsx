@@ -7,7 +7,7 @@ export default function Header () {
     return (
         <HeaderContainer>
             <Box>
-                <Link to="/">
+                <Link to="/" title='Home page'>
                     <NBALogo>
                         <img src={logo} alt='Official NBA logo featuring a silhouette of a basketball player in blue and red, holding a basketball in both hands.'/>
                     </NBALogo>
