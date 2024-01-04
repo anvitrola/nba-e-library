@@ -164,7 +164,7 @@ const PlayersStatsTable = memo(function PlayerStatsTable({
             sx={{
               backgroundColor: "var(--blue)",
               color: "var(--white)",
-              mb: '2rem' 
+              mb: '4rem' 
             }}
             component="div"
             count={totalStatsCount}
